@@ -2,11 +2,15 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build"
+    "build": "next build",
+    "build:turbo": "turbo build"
   },
   "dependencies": {
     "next": "latest",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
+  },
+  "devDependencies": {
+    "turbo": "^1.6.3"
   }
 }

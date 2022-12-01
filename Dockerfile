@@ -16,6 +16,7 @@ RUN \
 
 # Rebuild the source code only when needed
 FROM node:16-alpine AS builder
+RUN apk add --no-cache libc6-compat
 WORKDIR /app
 COPY --from=deps /app/node_modules ./node_modules
 COPY . .
@@ -25,7 +26,7 @@ COPY . .
 # Uncomment the following line in case you want to disable telemetry during the build.
 # ENV NEXT_TELEMETRY_DISABLED 1
 
-RUN yarn build
+RUN yarn global add pnpm && pnpm build:turbo
 
 # If using npm comment out above and use below instead
 # RUN npm run build
